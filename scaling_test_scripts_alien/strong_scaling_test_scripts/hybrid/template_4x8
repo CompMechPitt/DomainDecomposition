@@ -1,0 +1,4 @@
+rank 0=NODE1 slot=0-7
+rank 1=NODE1 slot=8-15
+rank 2=NODE2 slot=0-7
+rank 3=NODE2 slot=8-15
