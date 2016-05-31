@@ -85,7 +85,7 @@ contains
     type(vector), intent(in)  :: x
     type(vector), intent(in)  :: y
     real(8)     , intent(out) :: alpha
-    real(8)     , intent(inout) :: temp_alpha
+    ! real(8)     , intent(inout) :: temp_alpha
     ! Locals
     integer :: ierr
     integer :: i
@@ -119,13 +119,13 @@ contains
 
     ! Locals
     integer              :: ierr
-
+     type(vector)  :: temp
     ! *** Master on Numerical Methods in Engineering (MNME) ***
     ! *** Module Name: Domain Decomposition and Large Scale Scientific Computing (DDLSSC) ***
     ! *** TASK #3
   
     nrm2 = 0.0
-    type(vector)  :: temp
+    
     
     call vector_create(x%desc,temp)
 	call vector_comm(x,temp)
@@ -233,7 +233,7 @@ contains
     
     deallocate(recvtop)
     deallocate(recvbot)
-    deallocate(sendup)
+    deallocate(sendtop)
     deallocate(sendbot)
    
 
@@ -280,8 +280,6 @@ contains
     call mpi_abort(x%desc%mpi_comm, -1, ierr)
 
     end if
-
-	end if
     
     
 

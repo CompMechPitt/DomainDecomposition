@@ -23,7 +23,7 @@ contains
     ! *** Master on Numerical Methods in Engineering (MNME) ***
     ! *** Module Name: Domain Decomposition and Large Scale Scientific Computing (DDLSSC) ***
     ! *** TASK #5
- #ifdef ENABLE_OPENMP
+#ifdef ENABLE_OPENMP
 	real(8), allocatable :: temp(:)
 #endif
 
@@ -32,7 +32,7 @@ contains
 #ifdef ENABLE_OPENMP
 	!$omp parallel default(none) shared(A,x,y) private(I,J,temp)
 	allocate(temp(A%m))
-	aux = 0.0
+	temp = 0.0
 	!$omp do schedule(static)
 	! Each thread accesses N/P columns of A and N/P elements of x
 	do j=1, A%n
@@ -47,6 +47,8 @@ contains
 	
 	deallocate(temp)
 	!$omp end parallel 
+	
+		
 #else
 	do j=1, A%n
 		do i=1, A%m

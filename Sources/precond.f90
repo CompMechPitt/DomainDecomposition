@@ -166,9 +166,9 @@ contains
     type (matrix)  , intent(in), target :: A
     integer        , intent(in)         :: type
     type (precond) , intent(out)        :: prec
-
+    
     ! Locals
-    integer              :: ierr
+    integer              :: ierr,i
 
     type (vector)        :: temp 
 
@@ -202,7 +202,7 @@ contains
 		
 		prec%chol = A%data
 		
-		call DPOTRF('U',A%n,prec%chol,A%m,info)
+		call DPOTRF('U',A%n,prec%chol,A%m,ierr)
 	
 	end if
       
@@ -217,7 +217,7 @@ contains
     type (vector) , intent(inout)     :: z
 
     ! Locals
-    integer              :: ierr
+    integer              :: ierr,i
 
     ! *** Master on Numerical Methods in Engineering (MNME) ***
     ! *** Module Name: Domain Decomposition and Large Scale Scientific Computing (DDLSSC) ***
@@ -241,7 +241,7 @@ contains
 		call vector_weight(temp)
 		
 		call DPOTRS('U',M%desc%node_num,1,M%chol,M%desc%node_num, &
-					temp%data,M%desc%node_num,info)
+					temp%data,M%desc%node_num,ierr)
 					
 		call vector_comm(temp,z)
 		call vector_weight(z)
