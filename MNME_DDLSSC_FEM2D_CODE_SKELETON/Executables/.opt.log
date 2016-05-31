@@ -1,0 +1,56 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: FEM2D_POISSON_DRIVER
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (FEM2D_POISSON_DRIVER) [1] ../Sources/fem2d_poisson_driver.f90(1,9)
+  -> INLINE: (34,8) FEM2D_POISSON_DRIVER:READ_PARAMETERS
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at ../Sources/fem2d_poisson_driver.f90(47,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at ../Sources/fem2d_poisson_driver.f90(57,5)
+      remark #25408: memset generated
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at ../Sources/fem2d_poisson_driver.f90(57,5)
+         remark #15300: LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at ../Sources/fem2d_poisson_driver.f90(57,5)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+../Sources/fem2d_poisson_driver.f90(57,5):remark #34026: call to memset implemented as a call to optimized library version
+===========================================================================
+
+Begin optimization report for: FEM2D_POISSON_DRIVER:READ_PARAMETERS
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (FEM2D_POISSON_DRIVER:READ_PARAMETERS) ../Sources/fem2d_poisson_driver.f90(81,14)
+
+===========================================================================
