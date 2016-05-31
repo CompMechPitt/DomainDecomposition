@@ -1,0 +1,169 @@
+
+<;-1:-1;IPO UNREFERENCED VAR REMOVING;;0>
+  UNREF VAR REMOVAL ROUTINE-SYMTAB (MAIN__):VARS(3),PACKS (3)
+
+  UNREF VAR REMOVAL ROUTINE-SYMTAB (fem2d_poisson_driver_IP_read_parameters_):VARS(8),PACKS (8)
+
+
+<;-1:-1;IPO VAR ADDRESSES;;0>
+  VAR ADDRESS:VARS (5)PACKS (5)
+
+
+<;-1:-1;IPO UNREFERENCED VAR REMOVING;;0>
+  UNREF VAR REMOVAL: MODULE-SYMTAB: VARS(12),PACKS (5)
+
+
+<;-1:-1;IPO VAR ADDRESSES;;0>
+  VAR ADDRESS:VARS (5)PACKS (5)
+
+
+<;-1:-1;IPO ROUTINE ATTRIBUTES PROPAGATION;;0>
+  ROUTINE ATTRIBUTE PROPAGATION TOTALS: 
+
+      RDECL: NSE(0->0) AR(0->0) NORET(0->0) DR(0->0) NT(0->0)
+      RDECL: MF(0->0) OMPPAR(0->0)
+      ENTRY: SE(0->0) DSE(0->0) IR(0->0) DIR(0->0) AR(0->0)
+      ENTRY: MX(0->0) DR(0->0) DDR(0->0) TRIV(0->0) DTRIV(0->0)
+      ENTRY: NT(0->0) DNT(0->0) MF(0->0) DMF(0->0) NDR(0->0)
+      ENTRY: DNDR(0->0) INLOOP(0->0) INASYNCHTRY(0->0)
+      ENTRY: LOCTHIS(0->0) OMPPAR(0->0)
+
+
+
+<;-1:-1;IPO ROUTINE ATTRIBUTES LATE PROPAGATION;;0>
+  ROUTINE ATTRIBUTE LATE PROPAGATION TOTALS: 
+
+      ENTRY: CP(0->0)
+
+
+
+<;-1:-1;IPO MODREF;;0>
+  CI-MOD: TOTAL(2):BOTTOM(1)OTHER(1)
+
+  CI-REF: TOTAL(2):OTHER(2)
+
+
+<;-1:-1;IPO;;0>
+WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+
+WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+
+WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+<../Sources/fem2d_poisson_driver.f90;1:79;IPO INLINING;MAIN__;0>
+INLINING REPORT: (MAIN__) [1/2=50.0%]
+
+  -> mpi_finalize_(EXTERN)
+  -> data_desc_class_mp_data_desc_destroy_(EXTERN)
+  -> mesh_class_mp_mesh_destroy_(EXTERN)
+  -> matrix_class_mp_matrix_destroy_(EXTERN)
+  -> vector_class_mp_vector_destroy_(EXTERN)
+  -> vector_class_mp_vector_destroy_(EXTERN)
+  -> timer_class_mp_timer_start_(EXTERN)
+  -> precond_class_mp_precond_create_(EXTERN)
+  -> timer_class_mp_timer_stop_(EXTERN)
+  -> timer_class_mp_timer_report_(EXTERN)
+  -> timer_class_mp_timer_create_(EXTERN)
+  -> timer_class_mp_timer_start_(EXTERN)
+  -> solver_mp_pcg_(EXTERN)
+  -> timer_class_mp_timer_stop_(EXTERN)
+  -> timer_class_mp_timer_report_(EXTERN)
+  -> precond_class_mp_precond_destroy_(EXTERN)
+  -> timer_class_mp_timer_create_(EXTERN)
+  -> fem_assembly_mp_assembly_linear_system_(EXTERN)
+  -> vector_class_mp_vector_create_(EXTERN)
+  -> vector_class_mp_vector_create_(EXTERN)
+  -> matrix_class_mp_matrix_create_(EXTERN)
+  -> mesh_class_mp_mesh_create_(EXTERN)
+  -> for_write_seq_lis(EXTERN)
+  -> for_write_seq_lis_xmit(EXTERN)
+  -> for_stop_core(EXTERN)
+  -> data_desc_class_mp_data_desc_create_(EXTERN)
+  -> INLINE: fem2d_poisson_driver_IP_read_parameters_(3) (isz = 309) (sz = 326 (116+210))
+    -> for_iargc(EXTERN)
+    -> for_getarg(EXTERN)
+    -> for_getarg(EXTERN)
+    -> for_stop_core(EXTERN)
+    -> for_write_seq_lis_xmit(EXTERN)
+    -> for_write_seq_lis_xmit(EXTERN)
+    -> for_trim(EXTERN)
+    -> for_write_seq_lis(EXTERN)
+    -> for_read_int_lis(EXTERN)
+    -> for_getarg(EXTERN)
+    -> for_read_int_lis(EXTERN)
+    -> for_getarg(EXTERN)
+    -> for_read_int_lis(EXTERN)
+    -> for_getarg(EXTERN)
+    -> for_read_int_lis(EXTERN)
+    -> for_getarg(EXTERN)
+    -> for_read_int_lis(EXTERN)
+    -> for_getarg(EXTERN)
+    -> for_read_int_lis(EXTERN)
+    -> for_getarg(EXTERN)
+    -> for_cpstr(EXTERN)
+    -> for_cpstr(EXTERN)
+    -> for_cpstr(EXTERN)
+    -> for_write_seq_lis(EXTERN)
+    -> for_trim(EXTERN)
+    -> for_write_seq_lis_xmit(EXTERN)
+    -> for_write_seq_lis_xmit(EXTERN)
+    -> for_stop_core(EXTERN)
+  -> mpi_init_(EXTERN)
+  -> for_set_reentrancy(EXTERN)
+
+
+<../Sources/fem2d_poisson_driver.f90;1:79;IPO FORWARD SUBSTITUTION;MAIN__;0>
+  SUBSTITUTION: TOTAL(23):REPLACE(12)REMOVE(11)
+
+
+HPO VECTORIZER REPORT (MAIN__) LOG OPENED ON Fri Feb 14 00:00:12 2014
+
+
+<../Sources/fem2d_poisson_driver.f90;-1:-1;hpo_vectorization;MAIN__;0>
+HPO Vectorizer Report (MAIN__)
+
+../Sources/fem2d_poisson_driver.f90(57:5-57:5):VEC:MAIN__:  LOOP WAS VECTORIZED
+loop was not vectorized: not inner loop
+../Sources/fem2d_poisson_driver.f90(47:3-47:3):VEC:MAIN__:  loop was not vectorized: not inner loop
+
+HLO REPORT LOG OPENED ON Fri Feb 14 00:00:12 2014
+
+
+<../Sources/fem2d_poisson_driver.f90;-1:-1;hlo;MAIN__;0>
+High Level Optimizer Report (MAIN__)
+
+
+<../Sources/fem2d_poisson_driver.f90;57:57;hlo_reroll;MAIN__;0>
+Loop at line:57       memset generated  
+../Sources/fem2d_poisson_driver.f90(57:5-57:5):CG:MAIN__:  call to memset implemented as a call to optimized library version
+
+<../Sources/fem2d_poisson_driver.f90;-1:-1;IPO DEAD STATIC FUNCTION ELIMINATION;fem2d_poisson_driver_IP_read_parameters_;0>
+DEAD STATIC FUNCTION ELIMINATION: 
+  (fem2d_poisson_driver_IP_read_parameters_)
+  Routine is dead static
+
+
+<../Sources/fem2d_poisson_driver.f90;-1:-1;PGO;fem2d_poisson_driver_IP_read_parameters_;0>
+  STATIC:../Sources/fem2d_poisson_driver.f90  fem2d_poisson_driver_IP_read_parameters_
+
+<../Sources/fem2d_poisson_driver.f90;-1:-1;PGO;MAIN__;0>
+  STATIC:../Sources/fem2d_poisson_driver.f90  MAIN__
+
+<;-1:-1;PGO;;0>
+
+      2 FUNCTIONS HAD VALID STATIC PROFILES
+
+  IPO CURRENT  QUALITY METRIC:  50.0%
+  IPO POSSIBLE QUALITY METRIC:  50.0%
+  IPO QUALITY  METRIC RATIO:   100.0%
+
+
